@@ -3,42 +3,30 @@ import "./App.css";
 import axios from 'axios'
 import PhotoToday from './components/PhotoToday'
 import Description from './components/Description'
-import PhotoTitle from './components/PhotoTitle'
-
+import Heading from './components/PhotoTitle'
 
 
 function App() {
-  const [dataSet, setDataSet] = useState(null);
-  const [heading, setHeading] = useState(null);
-  const [photo, setPhoto] = useState(null);
-  const [explanation, setExplanation] = useState(null);
-  const [date, setDate] = useState(null);
-  const [copyRight, setCopyRight] = useState(null);
+  const [dataSet, setDataSet] = useState({});
 
   useEffect (() => {
     axios
-      .get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
+      .get('https://api.nasa.gov/planetary/apod?api_key=uWi7tx1SDcYee9XTL7jdBkFh5iL1eBQvlp5RJHGb')
       .then((res) => {
         setDataSet(res.data);
-        setHeading(res.data.title);
-        setPhoto(res.data.hdurl);
-        setExplanation(res.data.explanation);
-        setDate(res.data.date);
-        setCopyRight(res.data.copyright);
       })
       .catch((err) => {
         console.log('Error')
       })
   }, [])
+
+  console.log(dataSet);
   
   return (
     <div className="App">
-      <h1>
-        NASA Photo of the Day
-      </h1>
-      <PhotoTitle heading={heading} date={date}/>
-      <PhotoToday photo={photo} />
-      <Description explanation={explanation} copyRight={copyRight}/>
+      <Heading />
+      <PhotoToday heading={dataSet.title} date={dataSet.date} photo={dataSet.hdurl} />
+      <Description explanation={dataSet.explanation} copyRight={dataSet.copyright}/>
     </div>
   );
 }
