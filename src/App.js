@@ -12,6 +12,8 @@ function App() {
   const [heading, setHeading] = useState(null);
   const [photo, setPhoto] = useState(null);
   const [explanation, setExplanation] = useState(null);
+  const [date, setDate] = useState(null);
+  const [copyRight, setCopyRight] = useState(null);
 
   useEffect (() => {
     axios
@@ -21,27 +23,22 @@ function App() {
         setHeading(res.data.title);
         setPhoto(res.data.hdurl);
         setExplanation(res.data.explanation);
+        setDate(res.data.date);
+        setCopyRight(res.data.copyright);
       })
-
       .catch((err) => {
         console.log('Error')
       })
   }, [])
-
-
-  //why can't you do this?!
-  // const photoheading = dataSet.title;
-
-
-
+  
   return (
     <div className="App">
       <h1>
         NASA Photo of the Day
       </h1>
-      <PhotoTitle heading={heading} />
+      <PhotoTitle heading={heading} date={date}/>
       <PhotoToday photo={photo} />
-      <Description explanation={explanation} />
+      <Description explanation={explanation} copyRight={copyRight}/>
     </div>
   );
 }

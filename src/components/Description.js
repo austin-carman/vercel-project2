@@ -2,9 +2,12 @@ import React from 'react'
 
 
 const Description = (props => {
-    const {explanation} = props;
+    const {explanation, copyRight} = props;
     return (
-        <p>{explanation}</p>
+        <>
+            <p>{copyRight ? `Copyright: ${copyRight}` : ''}</p>
+            <p>{explanation}</p>
+        </>
     )
 })
 
