@@ -3,10 +3,9 @@ import styled from 'styled-components'
 
 const StyledDescription = styled.p `
     width: 75%;
-    margin: 3% auto;
     text-align: left;
     font-size: 1.4rem;
-
+    margin: 0 auto 3%;
 `
 
 const Description = (props => {

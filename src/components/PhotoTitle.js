@@ -4,8 +4,10 @@ import styled from 'styled-components'
 
 const StyleHeader = styled.header `
     display:flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
     background-image: url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    height: 30vh;
     div {
         width: 10%;
     }

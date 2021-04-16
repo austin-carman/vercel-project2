@@ -19,6 +19,7 @@ const StyledSection = styled.section `
 
 const PhotoToday = (props => {
     const {heading, date, photo} = props;
+
     return (
         <StyledSection>
             <h2>{heading}</h2>

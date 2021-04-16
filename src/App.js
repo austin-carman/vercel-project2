@@ -6,6 +6,9 @@ import Description from './components/Description'
 import Heading from './components/PhotoTitle'
 
 
+// what if url is for a video? As currently constructed the video will not display. Same if there is a url but not an hdurl.
+// Try to add in user input to select the date and display the image/details from that date by changing the API
+
 function App() {
   const [dataSet, setDataSet] = useState({});
 
@@ -19,8 +22,6 @@ function App() {
         console.log('Error')
       })
   }, [])
-
-  console.log(dataSet);
   
   return (
     <div className="App">
