@@ -11,7 +11,6 @@ const StyleHeader = styled.header `
     div {
         width: 10%;
     }
-
     nav {
         display: flex;
         flex-direction: column;
@@ -19,12 +18,11 @@ const StyleHeader = styled.header `
         align-items: flex-end;
         margin-right: 1%;
     }
-
     h1 {
        color: ${pr => pr.theme.primaryColor};
        font-size: 4rem;
     }
-    a{
+    a {
         font-size: 1.2rem;
         color: ${pr => pr.theme.primaryColor};
 

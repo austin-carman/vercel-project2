@@ -1,8 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import ReactPlayer from 'react-player'
 
 const StyledSection = styled.section `
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
     h2 {
         font-size: 2.0rem;
@@ -14,17 +18,22 @@ const StyledSection = styled.section `
     img {
         width: 75%;
     }
-
 `
 
 const PhotoToday = (props => {
-    const {heading, date, photo} = props;
+    const {heading, date, hdPhoto, media} = props;
 
     return (
         <StyledSection>
             <h2>{heading}</h2>
             <p>Date: {date}</p>
-            <img src={photo} alt='NASA Photo of the Day'></img>
+            <div className='media-container'>
+                {hdPhoto ? 
+                    <img src={hdPhoto} alt='NASA astrology'></img>
+                    : <ReactPlayer url={media}/>
+                }
+            </div>
+            
         </StyledSection>
     )
 })

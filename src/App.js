@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from "react";
 import "./App.css";
 import axios from 'axios'
-import PhotoToday from './components/PhotoToday'
+import PhotoToday from './components/Photo'
 import Description from './components/Description'
-import Heading from './components/PhotoTitle'
+import Heading from './components/Heading'
+
+
 
 
 // what if url is for a video? As currently constructed the video will not display. Same if there is a url but not an hdurl.
@@ -16,6 +18,7 @@ function App() {
     axios
       .get('https://api.nasa.gov/planetary/apod?api_key=uWi7tx1SDcYee9XTL7jdBkFh5iL1eBQvlp5RJHGb')
       .then((res) => {
+        debugger
         setDataSet(res.data);
       })
       .catch((err) => {
@@ -26,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <Heading />
-      <PhotoToday heading={dataSet.title} date={dataSet.date} photo={dataSet.hdurl} />
+      <PhotoToday heading={dataSet.title} date={dataSet.date} hdPhoto={dataSet.hdurl} media={dataSet.url} />
       <Description explanation={dataSet.explanation} copyRight={dataSet.copyright}/>
     </div>
   );
