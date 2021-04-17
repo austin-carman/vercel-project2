@@ -16,7 +16,7 @@ const Description = (props => {
             <StyledDescription>{explanation}</StyledDescription>
         </>
     )
-})
+});
 
     
 export default Description;
