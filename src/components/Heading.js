@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import moonLanding from '../images/moonLanding.png';
 
 
 const StyleHeader = styled.header `
@@ -10,6 +11,10 @@ const StyleHeader = styled.header `
     height: 30vh;
     div {
         width: 10%;
+    }
+    img {
+        width: 100%;
+        border-radius: 75%;
     }
     nav {
         display: flex;
@@ -37,7 +42,7 @@ const Heading = (props => {
         <>
             <StyleHeader>
                 <div>
-                    <img src='../favicon.ico' alt='NASA logo'></img>
+                    <img src={moonLanding} alt='NASA logo'></img>
                 </div>
                 <h1>NASA Photo of the Day</h1>
                 <nav>
